@@ -11,6 +11,7 @@
   --accent-bg-color: #f4f4fd;
   --button-bg-hero-color: #4d5ae5;
   --button-bg-hover-color: #404bbf;
+  --form-color: #8e8f99;
 }
 
 p,
@@ -486,13 +487,15 @@ body {
 
   transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1),
     background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
-    box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .samples-button:hover,
 .samples-button:focus {
   color: var(--secondary-text-color);
   background-color: var(--button-bg-hover-color);
+  border-color: transparent;
   box-shadow: 0px 3px 1px rgba(0, 0, 0, 0.1), 0px 2px 1px rgba(0, 0, 0, 0.08),
     0px 2px 2px rgba(0, 0, 0, 0.12);
 }
@@ -552,7 +555,6 @@ body {
   line-height: 1.5;
   letter-spacing: 0.02em;
   color: var(--logo-footer-text-color);
-  background-color: var(--button-bg-hero-color);
 }
 
 /* footer */
@@ -597,12 +599,11 @@ body {
   color: var(--logo-footer-text-color);
 }
 
-.footer-social-text {
+.footer-title-text {
   display: block;
   margin-bottom: 16px;
 
   font-weight: 500;
-  font-size: 16px;
   line-height: 1.5;
   letter-spacing: 0.02em;
   color: var(--secondary-text-color);
@@ -626,6 +627,72 @@ body {
 
 .footer-social-box .social-link:is(:hover, :focus) {
   background-color: #31d0aa;
+}
+
+.subscribe-footer-box {
+  margin-left: 80px;
+}
+
+.subscribe-input {
+  width: 264px;
+  min-height: 40px;
+  padding: 8px 16px;
+  outline: transparent;
+  background-color: inherit;
+  color: var(--secondary-text-color);
+  border: 1px solid #ffffff;
+  box-shadow: (0px 4px 4px rgba(0, 0, 0, 0.15));
+  border-radius: 4px;
+
+  transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.subscribe-input::placeholder {
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 2;
+  letter-spacing: 0.04em;
+  color: var(--secondary-text-color);
+
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.subscribe-input:focus {
+  border-color: var(--accent-text-color);
+}
+
+.subscribe-input:focus::placeholder {
+  color: var(--accent-text-color);
+}
+
+.subscribe-form {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.subcribe-wrap {
+  display: flex;
+  gap: 16px;
+}
+
+.subscribe-button {
+  width: 165px;
+  min-height: 40px;
+  padding: 8px 24px;
+  font-family: inherit;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: 0.04em;
+  color: var(--secondary-text-color);
+  background-color: var(--button-bg-hero-color);
+  border: none;
+  border-radius: 4px;
+}
+
+.subcribe-icon {
+  fill: var(--primary-bg-color);
 }
 
 /* modal window */
@@ -654,7 +721,7 @@ body {
 
   padding: 24px;
   width: 408px;
-  min-height: 576px;
+  min-height: 584px;
   background-color: #fcfcfc;
   border-radius: 4px;
   box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 1px 3px rgba(0, 0, 0, 0.12),
@@ -670,13 +737,23 @@ body {
   margin-right: 24px;
   width: 24px;
   height: 24px;
+  color: var(--title-text-color);
+  background-color: var(--footer-text-color);
   border-radius: 50%;
   border: 1px solid rgba(0, 0, 0, 0.1);
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    border 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.modal-close-btn:is(:hover, :focus) {
+  color: var(--secondary-text-color);
+  background-color: var(--button-bg-hover-color);
+  border: 1px solid var(--button-bg-hover-color);
 }
 
 .close-btn-svg {
-  fill: #2e2f42;
-  background-color: #e7e9fc;
+  fill: currentColor;
 }
 
 .backdrop.is-hidden {
@@ -688,4 +765,153 @@ body {
 
 .no-scroll {
   overflow: hidden;
+}
+
+/*MODAL-FORM */
+
+.modal-title {
+  margin-top: 24px;
+  margin-bottom: 16px;
+
+  font-weight: 500;
+  line-height: 1.5;
+  text-align: center;
+  letter-spacing: 0.02em;
+  color: var(--title-text-color);
+}
+
+.form-field:not(:first-child) {
+  margin-top: 8px;
+}
+
+.form-field.checkbox-field {
+  margin-top: 16px;
+}
+
+.form-label {
+  font-size: 12px;
+  line-height: 1.17;
+  letter-spacing: 0.04em;
+  color: var(--form-color);
+}
+
+.feedback {
+  display: block;
+  width: 100%;
+  min-height: 120px;
+  padding: 8px 16px;
+  margin-top: 4px;
+  outline: transparent;
+  border-radius: 4px;
+  border: 1px solid rgba(46, 47, 66, 0.4);
+
+  resize: none;
+  transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.feedback::placeholder {
+  font-size: 12px;
+  line-height: 1.17;
+  letter-spacing: 0.04em;
+  color: rgba(46, 47, 66, 0.4);
+
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.checkbox-link {
+  margin-left: 4px;
+  outline: transparent;
+  color: var(--accent-text-color);
+
+  transition: border 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.checkbox-link:focus {
+  border: 1px solid #4d5ae5;
+}
+
+.checkbox-wrap {
+  display: flex;
+  align-items: center;
+  margin-top: 16px;
+}
+
+.checkbox-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  line-height: 1.17;
+  letter-spacing: 0.04em;
+  color: var(--form-color);
+}
+
+.checkbox-icon {
+  padding: 4px 3px;
+  fill: #ffffff;
+  border-radius: 2px;
+  border: 1px solid rgba(46, 47, 66, 0.4);
+}
+
+.checkbox:checked + .checkbox-icon {
+  background-color: #404bbf;
+  border: 1px solid #404bbf;
+}
+
+.modal-input {
+  margin-top: 4px;
+  width: 100%;
+  height: 40px;
+  padding: 8px 16px 8px 38px;
+  outline: transparent;
+  border-radius: 4px;
+  border: 1px solid rgba(46, 47, 66, 0.4);
+
+  transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.modal-input:focus,
+.feedback:focus {
+  border-color: var(--accent-text-color);
+}
+
+.modal-input:focus + .form-svg {
+  fill: var(--accent-text-color);
+}
+
+.feedback:focus::placeholder {
+  color: var(--accent-text-color);
+}
+
+.input-wrap {
+  position: relative;
+}
+
+.form-svg {
+  position: absolute;
+  left: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  fill: var(--title-text-color);
+
+  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.button-submit {
+  display: block;
+  width: 169px;
+  min-height: 56px;
+  padding: 16px 32px;
+  margin-top: 24px;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: var(--button-bg-hero-color);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+  border-radius: 4px;
+  border: none;
+  font-weight: 500;
+  line-height: 1.5;
+  text-align: center;
+  letter-spacing: 0.04em;
+  color: var(--secondary-text-color);
 }
